@@ -68,16 +68,19 @@
                         <label for="">First Class ($150)</label>
                         <input id="first-input" class="inp-style inp-width" type="" name="" value="0">
                     </div>
-                    <button id="first-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
-                    <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                    <button onclick="firstClassInput(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                    <button onclick="firstClassInput(false)" class="btn btn-default"><i
+                            class="fas fa-minus"></i></button>
                 </div>
                 <div class="input-group f-class">
                     <div>
                         <label for="">Economy ($100)</label>
-                        <input class="inp-style inp-width" type="" name="" value="0">
+                        <input id="economy-input" class="inp-style inp-width" type="" name="" value="0">
                     </div>
-                    <button class="btn btn-default"><i class="fas fa-plus"></i></button>
-                    <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                    <button onclick="economyClassInput(true)" class="btn btn-default"><i
+                            class="fas fa-plus"></i></button>
+                    <button onclick="economyClassInput(false)" class="btn btn-default"><i
+                            class="fas fa-minus"></i></button>
                 </div>
 
             </div>
@@ -87,7 +90,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$00</p>
+                        <p>$ <span id="subTotal">00</span></p>
                     </div>
                 </div>
 
@@ -116,13 +119,43 @@
     <!--Thank You-->
 
     <script>
-        document.getElementById('first-plus').addEventListener('click', function () {
+        // For First class 
+
+
+        function firstClassInput(isIncrease) {
             const firstInput = document.getElementById('first-input');
             const firstNewInput = parseInt(firstInput.value);
-            const firstCount = firstNewInput + 1;
+            let firstCount = 0;
+            if (isIncrease == true) {
+                firstCount = firstNewInput + 1;
+            }
+            else if (isIncrease == false && firstNewInput > 0) {
+                firstCount = firstNewInput - 1;
+            }
             firstInput.value = firstCount;
+            const subTotal = firstCount * 150;
+            document.getElementById('subTotal').innerText = subTotal;
+        }
 
-        })
+
+        // For Economy class
+
+
+        function economyClassInput(isIncrease) {
+            const firstInput = document.getElementById('economy-input');
+            const firstNewInput = parseInt(firstInput.value);
+            let firstCount = 0
+            if (isIncrease == true) {
+                firstCount = firstNewInput + 1;
+            }
+            else if (isIncrease == false && firstNewInput > 0) {
+                firstCount = firstNewInput - 1;
+            }
+            firstInput.value = firstCount;
+            const subTotal = firstCount * 100;
+            document.getElementById('subTotal').innerText = subTotal;
+        }
+
 
     </script>
 </body>
