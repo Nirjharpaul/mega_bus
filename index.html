@@ -99,7 +99,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$0</p>
+                        <p>$ <span id="tax-amount">0</span></p>
                     </div>
                 </div>
                 <hr>
@@ -108,7 +108,7 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$0</p>
+                        <p>$ <span id="total-amount">0</span></p>
                     </div>
                 </div>
             </div>
@@ -133,8 +133,6 @@
                 firstCount = firstNewInput - 1;
             }
             firstInput.value = firstCount;
-            const subTotal = firstCount * 150;
-            document.getElementById('subTotal').innerText = subTotal;
             calculatesubTotal()
         }
 
@@ -154,8 +152,6 @@
                 firstCount = firstNewInput - 1;
             }
             firstInput.value = firstCount;
-            const subTotal = firstCount * 100;
-            document.getElementById('subTotal').innerText = subTotal;
             calculatesubTotal()
 
         }
@@ -164,13 +160,20 @@
             const firstInput = document.getElementById('first-input');
             const firstCount = parseInt(firstInput.value);
 
-
             const economyInput = document.getElementById('economy-input')
             const economyCount = parseInt(economyInput.value);
 
             const subtotalPrice = firstCount * 150 + economyCount * 100;
             document.getElementById('subTotal').innerText = subtotalPrice;
+
+            const tax = subtotalPrice * 0.1;
+            document.getElementById('tax-amount').innerText = tax;
+
+            const total = subtotalPrice + tax;
+            document.getElementById('total-amount').innerText = total;
         }
+
+
 
     </script>
 </body>
