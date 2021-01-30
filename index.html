@@ -119,8 +119,8 @@
     <!--Thank You-->
 
     <script>
-        // For First class 
 
+        // For first class
 
         function firstClassInput(isIncrease) {
             const firstInput = document.getElementById('first-input');
@@ -135,11 +135,12 @@
             firstInput.value = firstCount;
             const subTotal = firstCount * 150;
             document.getElementById('subTotal').innerText = subTotal;
-
+            calculatesubTotal()
         }
 
 
-        // For Economy class
+
+        //  For Economy class
 
 
         function economyClassInput(isIncrease) {
@@ -155,18 +156,19 @@
             firstInput.value = firstCount;
             const subTotal = firstCount * 100;
             document.getElementById('subTotal').innerText = subTotal;
+            calculatesubTotal()
 
         }
 
         function calculatesubTotal() {
-            const firstclassInput = document.getElementsById('first-input');
-            const firstclassCount = parseInt(firstclassInput.value);
+            const firstInput = document.getElementById('first-input');
+            const firstCount = parseInt(firstInput.value);
 
 
-            const economyclassInput = document.getElementsId('economy-input')
-            const economyclassCount = parseInt(economyclassInput.value);
+            const economyInput = document.getElementById('economy-input')
+            const economyCount = parseInt(economyInput.value);
 
-            const subtotalPrice = firstclassCount * 150 + economyclassCount * 100;
+            const subtotalPrice = firstCount * 150 + economyCount * 100;
             document.getElementById('subTotal').innerText = subtotalPrice;
         }
 
